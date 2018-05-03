@@ -12,5 +12,6 @@
 #include "utility/LED.h"
 #include "utility/Photocell.h"
 #include "utility/Speaker.h"
+#include "utility/Relay.h"
 
 #endif
