@@ -9,13 +9,15 @@ BobaBlox is an Arduino library that makes it easier to sketch code for basic har
 Here's an example of using BobaBlox in the standard blink example. First, standard blink:
 
     void setup() {
-    	pinMode (13, OUTPUT);    }
+    	pinMode (13, OUTPUT);
+    }
     
     void loop() {
     	digitalWrite (13, HIGH);
     	delay (500);
     	digitalWrite (13, LOW);
-    	delay (500);	    }
+    	delay (500);	
+    }
     
 When this is written using BobaBlox, it becomes:
 
@@ -23,7 +25,8 @@ When this is written using BobaBlox, it becomes:
     LED light(13);
     
     void loop () {
-    	light.blink();    }
+    	light.blink();
+    }
 
 In this case, setup() isn't required (though it has to be placed in the code). In addition, there are different versions of the blink method for changing the pin, number of blinks, the on-time, and off-time.
 
@@ -150,3 +153,21 @@ Often, a speaker is connected between one Arduino pin and ground. However, in th
 
 *beep()* is just like the tone() Arduino function. It will pause the loop while the sound is playing.
 *tone()* plays a tone continuously, monitoring it as the function is called repeatedly in *loop()*. In order for tone() to be effective, it must be called frequently at the top level of *loop()*.
+
+##RELAY
+####Declaration
+
+    RELAY relay_name(pin);
+    
+*relay_name* is the name of the Relay variable being declared.  
+*pin* is the number of the pin being used for the Relay.
+
+####Methods
+
+    void on ();								// Turns the Relay off
+    void off ();							// Turns the Relay on
+    void set (state);						// Sets Relay on if state is greater than zero
+    void blink ();							// Blinks Relay once with default 250ms on and off
+    void blink (n);							// Blinks n times with default blink delay
+    void blink (n, delay);					// Blinks n times with specific delay
+    void blink (n, delayON, delayOFF);		// Blinks n times with delayON and delayOFF
